@@ -169,7 +169,7 @@ CREATE TABLE
 ```
 CREATE TABLE customers
 (
-	cust_id int NOT NULL AUTO_INCREMENT,
+    cust_id int NOT NULL AUTO_INCREMENT,
     cust_name char(50) NOT NULL,
     cust_address char(50) NULL,
     cust_city char(50) NULL,
@@ -192,7 +192,7 @@ CREATE TABLE customers
 ```
 CREATE TABLE orders
 (
-	order_num int NOT NULL AUTO_INCREMENT,
+    order_num int NOT NULL AUTO_INCREMENT,
     order_date datetime NOT NULL,
     cust_id int NOT NULL,
     PRIMARY KEY (order_num)
@@ -203,7 +203,7 @@ CREATE TABLE orders
 ```
 CREATE TABLE vendors
 (
-	vend_id int NOT NULL AUTO_INCREMENT,
+    vend_id int NOT NULL AUTO_INCREMENT,
     vend_name char(50) NOT NULL,
     vend_address char(50) NULL,
     vend_city char(50) NULL,
@@ -221,7 +221,7 @@ CREATE TABLE vendors
 ```
 CREATE TABLE orderitems
 (
-	order_num int NOT NULL,
+    order_num int NOT NULL,
     order_item int NOT NULL,
     prod_id char(10) NOT NULL,
     quantity int NOT NULL,
@@ -239,7 +239,7 @@ AUTO_INCREMENT告诉MySQL，本列每当增加一行时自动增量。每次 执
 ```
 CREATE TABLE orderitems
 (
-	order_num int NOT NUL,
+    order_num int NOT NUL,
     order_item int NOT NULL,
     prod_id char(10) NOT NULL,
     quantity int NOT NULL DEFAULT 1,
@@ -312,7 +312,7 @@ INSERT
 ```
 INSERT INTO Customers
 VALUES(NULL,
-	'Pep E. LaPew',
+    'Pep E. LaPew',
     '100 Main Street',
     'Los Angles',
     'CA',
@@ -324,7 +324,7 @@ VALUES(NULL,
 语法简单但不安全。更安全的方法为：
 ```
 INSERT INTO customers(cust_name,
-	cust_address,
+    cust_address,
     cust_city,
     cust_state,
     cust_zip,
@@ -332,7 +332,7 @@ INSERT INTO customers(cust_name,
     cust_contact,
     cust_email)
 VALUES('Pep E. LaPew',
-	'100 Main Street',
+    '100 Main Street',
     'Los Angeles',
     'CA',
     '90046'
@@ -342,7 +342,7 @@ VALUES('Pep E. LaPew',
 #下面的INSERT语句填充所有列（与前面的一样），但以一种不同的次序填充。
 #因为给出了列名，所以插入结果仍然正确：
 INSERT INTO customers(cust_name,
-	cust_contact,
+    cust_contact,
     cust_email,
     cust_address,
     cust_city,
@@ -350,7 +350,7 @@ INSERT INTO customers(cust_name,
     cust_zip,
     cust_country)
 VALUES('Pep E. LaPew',
-	NULL,
+    NULL,
     NULL,
     '100 Main Street',
     'Los Angles',
@@ -368,25 +368,25 @@ VALUES('Pep E. LaPew',
 ### 插入多个行
 ```
 INSERT INTO customers(cust_name,
-	cust_address,
+    cust_address,
     cust_city,
     cust_state,
     cust_zip,
     cust_country)
 VALUES('Pep E. LaPew',
-	'100 Main Street'
+    '100 Main Street'
     'Los Angeles',
     'CA',
     '90046',
     'USA');
 INSERT INTO customers(cust_name,
-	cust_address,
+    cust_address,
     cust_city,
     cust_state,
     cust_zip,
     cust_country)
 VALUES('M. Martian',
-	'42 Galaxy Way'
+    '42 Galaxy Way'
     'New York',
     'NY',
     '11213',
@@ -394,20 +394,20 @@ VALUES('M. Martian',
 
 #使用组合句
 INSERT INTO customers(cust_name,
-	cust_address,
+    cust_address,
     cust_city,
     cust_state,
     cust_zip,
     cust_country)
 VALUES('Pep E. LaPew',
-	'100 Main Street'
+    '100 Main Street'
     'Los Angeles',
     'CA',
     '90046',
     'USA')，
 
     ('M. Martian',
-	'42 Galaxy Way'
+    '42 Galaxy Way'
     'New York',
     'NY',
     '11213',
@@ -419,7 +419,7 @@ VALUES('Pep E. LaPew',
 
 ```
 INSERT INTO customers(cust_id,
-	cust_contact,
+    cust_contact,
     cust_email,
     cust_name,
     cust_address,
@@ -428,7 +428,7 @@ INSERT INTO customers(cust_id,
     cust_zip,
     cust_country)
 SELECT cust_id,
-	cust_contact,
+    cust_contact,
     cust_email,
     cust_name,
     cust_address,
